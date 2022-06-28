@@ -7,6 +7,7 @@ const getTasks = async (req, res) => {
     console.log("get tasks /")
     res.send({ status: "OK", data: { tasks: tasks } });
   } catch (error) {
+    console.error('error: ',  error)
     res
       .status(error?.status || 500)
       .send({ status: "FAILED", data: { error: error?.message || error } });
@@ -48,8 +49,10 @@ const createTask = async (req, res) => {
   if (
     !body.text ||
     !body.day ||
-    !body.reminder
+    body.reminder === null
   ) {
+
+    console.log(`In request text: ${body.text}; day: ${body.day}; reminder: ${body.reminder}`)
     res
       .status(400)
       .send({

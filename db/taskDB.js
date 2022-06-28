@@ -14,7 +14,7 @@ const getTasks = async () => {
         console.log("get tasks error: ", error)
         throw { status: 500, message: error?.message || error };
     } finally {
-        await client.close();
+        // await client.close();
     }
 }
 
@@ -36,7 +36,7 @@ const getTask = async (taskId) => {
         console.log("select task error: ", error)
         throw { status: 500, message: error?.message || error };
     } finally {
-        await client.close();
+        // await client.close();
     }
 }
 
@@ -47,13 +47,13 @@ const createTask = async (newTask) => {
     try {
         await client.connect();
         let result = await client.db("practice-demos").collection("tasks").insertOne(newTask);
-        // console.log("Result: ", result)
+        console.log("Result: ", result)
         return newTask
     } catch (error) {
         console.log("create taskdb error: ", error)
         throw { status: 500, message: error?.message || error };
     } finally {
-        await client.close();
+        // await client.close();
     }
 }
 
@@ -86,7 +86,7 @@ const updateTask = async (taskId, changes) => {
         console.log("update taskdb error: ", error)
         throw { status: 500, message: error?.message || error };
     } finally {
-        await client.close();
+        // await client.close();
     }
 }
 
