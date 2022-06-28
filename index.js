@@ -5,7 +5,7 @@ const cors = require('cors');
 const { getTasks, createTask, updateTask, deleteTask, getTask } = require('./core/controller.js');
 app.use(bodyParser.json());
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: "*"
 }));
 
 
