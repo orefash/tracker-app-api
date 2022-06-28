@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { getTasks, createTask, updateTask, deleteTask, getTask } = require('./core/controller.js');
 app.use(bodyParser.json());
-app.use(cors({
-  origin: "*"
-}));
+// app.use(cors({
+//   origin: "*"
+// }));
 
 
 process.on('unhandledRejection', err => {
